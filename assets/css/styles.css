@@ -192,9 +192,36 @@ img{
 .home__data{
   align-self: center;
 }
+
+
+
+span.typed-text {
+  font-weight: normal;
+  color: #dd7732;
+}
+span.cursor {
+  display: inline-block;
+  background-color: #ccc;
+  margin-left: 0.1rem;
+  width: 3px;
+  animation: blink 1s infinite;
+}
+span.cursor.typing {
+  animation: none;
+}
+@keyframes blink {
+  0%  { background-color: #ccc; }
+  49% { background-color: #ccc; }
+  50% { background-color: transparent; }
+  99% { background-color: transparent; }
+  100%  { background-color: #ccc; }
+}
+
+
+
 .home__title{
   font-size: var(--big-font-size);
-  margin-bottom: var(--mb-5);
+  margin-top: var(--mb-5);
 }
 .home__title-color{
   color: var(--first-color);
@@ -206,7 +233,7 @@ img{
 .home__social-icon{
   width: max-content;
   margin-bottom: var(--mb-2);
-  font-size: 1.5rem;
+  font-size: 2rem;
   color: var(--second-color);
 }
 .home__social-icon:hover{
@@ -228,6 +255,12 @@ img{
   font-weight: var(--font-semi);
   border-radius: .5rem;
 }
+#about .button{
+  box-shadow: none;
+  font-family: var(--body-font);
+  border: none;
+  margin-top: 10px;
+}
 .button:hover{
   box-shadow: 0 10px 36px rgba(0,0,0,.15);
 }
@@ -247,7 +280,16 @@ img{
   width: 200px;
   border-radius: .5rem;
 }
-
+.about_socials{
+  display: flex;
+  margin: 10px;
+  padding: 10px
+}
+.about_socials i{
+  padding-right: 17px;
+  padding-top: 5px;
+  font-size:25px;
+}
 /* ===== SKILLS =====*/
 .skills__container{
   row-gap: 2rem;
@@ -288,17 +330,17 @@ img{
   border-radius: .5rem;
   z-index: var(--z-back);
 }
-.skills__html{
-  width: 95%;
-}
 .skills__css{
-  width: 85%;
+  width: 80%;
+}
+.skills__php{
+  width: 50%;
 }
 .skills__js{
-  width: 65%;
+  width: 60%;
 }
-.skills__ux{
-  width: 85%;
+.skills__react{
+  width: 75%;
 }
 .skills__img{
   border-radius: .5rem;
@@ -313,12 +355,24 @@ img{
   border-radius: .5rem;
   overflow: hidden;
   height: 100%;
+  display: flex;
+  place-items: center;
+}
+.work_para{
+  text-align: center;
+  margin-bottom: 25px;
+  color: gray;
+  margin-top: -15px;
 }
 .work__img img{
   transition: 1s;
   cursor: pointer;
   object-fit: cover;
-  height: 280px;
+}
+.btn{
+width: max-content;
+height: max-content;
+margin-top: auto;
 }
 
 @media screen and (min-width: 360px) {
@@ -430,8 +484,9 @@ img{
 
   .about__container, .skills__container{
     grid-template-columns: repeat(2,1fr);
-    align-items: center;
     text-align: initial;
+    align-items: center;
+	 
   }
   .about__img img{
     width: 300px;
